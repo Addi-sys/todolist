@@ -20,7 +20,7 @@ const addItem = () => {
     // add input item to object "itemTodo"
     todoList.push(itemTodo);
     console.log(todoList);
-    render();
+    render(todoList);
 
 }
 
@@ -33,13 +33,13 @@ const toggleDone = (index) => {
         todoList[index].complete = true;
 
     }
-    render();
+    render(todoList);
 }
 
 // remove an item from the list 
 const remove = (index) => {
     todoList.splice(index, 1);
-    render();
+    render(todoList);
 }
 
 // true or false check for checkbox
@@ -49,21 +49,21 @@ checkbox.addEventListener('change', function() {
         filterCheck = true
         filter();
     } else {
-        return;
+        render(todoList);
     }
-    return;
 })
 
 const filter = () => {
     let filterList = todoList.filter((item) => item.complete === true)
+
     console.log(filterList)
 
-    document.getElementById("listItemArea").innerHTML = filterList;
+    render(filterList)
 
 }
 
-const render = () => {
-    let todoHTML = todoList.map((item, index) => {
+const render = (array) => {
+    let todoHTML = array.map((item, index) => {
 
         if (item.complete == false) {
             return `<li class="list">TODO:${item.contents} <a onclick="toggleDone(${index})" href="#">Mark Done</a><a href="#" onclick="remove(${index})"> x</a></li>`;
