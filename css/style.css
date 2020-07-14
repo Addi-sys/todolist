@@ -1,0 +1,22 @@
+    body {
+        background-color: #80560c;
+    }
+    
+    .jumbotron {
+        border-radius: 40px;
+        background-color: #FFEF00;
+    }
+    
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: space-around;
+        align-items: center;
+    }
